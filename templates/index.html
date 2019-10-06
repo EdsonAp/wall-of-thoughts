@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <div id="container" style="margin:30px;">
+
+        <h1>Welcome!</h1>
+        <div class="log-box">
+            <div class="register" style="display: inline-block; border: 3px solid black; width: 35%; padding: 3%;">
+                <h2>Register</h2>
+                <form action="/register" method="POST">
+                    <p>First Name:<input type="text" name="fname" class="input-box"></p>
+                    <p>Last Name:<input type="text" name="lname" class="input-box"></p>
+                    <p>Email:<input type="text" name="email" class="input-box"></p>
+                    <p>Password:<input type="password" name="password"class="input-box"></p>
+                    <p>Confirm Password:<input type="password" name="c_password"class="input-box"></p>
+                    <input type="submit" value="Submit" class="button">
+                    <script src="https://kit.fontawesome.com/cdbc963f92.js" crossorigin="anonymous"></script>
+                </form>
+            </div>
+
+            <div class="login"
+                style="display:inline-block;border: 3px solid black; width: 35%; vertical-align: top; padding: 3%; margin-left: 5px;">
+                <h2>Login</h2>
+                <form action="/login" method="post">
+                    <p>Email:<input type="text" name="email" placeholder="test@email.com" class="input-box"></p>
+                    <p>Password:<input type="password" name="password" placeholder="12345678"class="input-box"></p><br>
+                    <input type="submit" value="Login" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    </div>
+
+</body>
+
+</html>

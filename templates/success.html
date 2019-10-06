@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='success.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+
+
+<div class="logout-box">
+    <a href="/logout" id="logout">logout</a>
+</div>
+
+<body>
+    <div class="back">
+        <div id="container" style="margin:30px;">
+            <div id="top-nav" style="display: inline;">
+                <h1 class="greeting">Hi
+                    {{ session['greeting'] }}
+                    {{ session['greeting2'] }}!
+                </h1>
+
+                <!-- <a href="/users">Users</a> -->
+            </div>
+
+            <form action="/thoughts" method="POST">
+                <!--redirect back to success-->
+                <h2>
+                    <input name="thoughttxt" type="text" placeholder="Post a Great Thought Here!" class="text-box">
+                    <input type="submit" value="Submit" class="button">
+                </h2>
+
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for madeupName in messages %}
+                <p>{{ madeupName }}</p>
+                {% endfor %}
+                {% endif %}
+                <!-- {% endwith %} -->
+            </form>
+
+
+            <div>
+                <h2 class="feed-title">Your Feed:</h2>
+
+                <div class="message-box">
+                    {% for messages in thoughts%}
+                    <h4>{{messages['first_name']}} says:</h4>
+                    <p class="message">
+                        {{messages['message']}}</p>
+
+                    <a href="/thoughts/{{messages['id']}}/delete" ><button class="btn btn1">Delete</button></a>
+                
+                    <a href="/thoughts/{{messages['id']}}/details" ><button class="btn btn2">Details</button></a>
+                    <hr>
+                    
+                    {% endfor %}
+                </div>
+
+                {%for likes in thoughts%}
+                {{likes['count(like_thoughts.users_id)']}}
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

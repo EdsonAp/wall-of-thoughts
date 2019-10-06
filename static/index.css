@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Playfair Display', serif;
+}
+body{
+    background: #FEAD96;
+
+}
+#container{
+    /* background: #5D9FB8; */
+    background: url('https://images.unsplash.com/photo-1570169796972-e37717cba345?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    height: 900px;
+}
+
+h1{
+    font-size: 200px;
+    color: #75513D;
+    margin-top: 10px;
+    text-align: center;
+    position: inherit;
+    
+}
+.log-box{
+    margin-left: 15%;
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 20px;
+}
+.input-box{
+    height: 20px;
+    width: 40%;
+}
+.register{
+    background: rgba(255, 255, 255, 0.69);
+}
+.button{
+    background: black;
+    width: 90%;
+    color: white;
+    height: 30px;
+    font-size: 20px;
+}
+.login{
+    background: rgba(255, 255, 255, 0.69);
+}
+
+.fa-user-ninja{
+    width: 300px;
+}
